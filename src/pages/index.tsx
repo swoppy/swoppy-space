@@ -3,7 +3,9 @@ import { Link } from "gatsby"
 import Image from "../components/image"
 import SEO from "../components/seo";
 import "./css/default.css";
-import baseStyles from "./css/index.module.css";
+
+// vscode unable to recognize import path for some reason, so ended up using require
+const baseStyles = require("./css/index.module.css");
 
 const IndexPage = () => (
   <>
