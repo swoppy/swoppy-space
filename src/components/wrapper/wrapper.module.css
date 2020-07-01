@@ -1,8 +1,9 @@
-@value blackColor from '../../colors/colors.css';
+@value vulcanApprox from '../../colors/colors.css';
 @value whiteColor from '../../colors/colors.css';
 
 .baseBackground {
   box-sizing: border-box;
+  padding: 16px;
   height: 100%;
   width: 100%;
 }
@@ -14,7 +15,7 @@
 
 .midnightBackground {
   composes: baseBackground;
-  background: blackColor;
+  background: vulcanApprox;
 }
 
 .animation {
