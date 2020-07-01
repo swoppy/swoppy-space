@@ -1,0 +1,45 @@
+@value lilacBush from '../../colors/colors.css';
+@value mineShaft from '../../colors/colors.css';
+
+.logoContainer {
+  font-size: 28px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.lightLogoContainer {
+  composes: logoContainer;
+  color: mineShaft;
+}
+
+.darkLogoContainer {
+  composes: logoContainer;
+  color: lilacBush;
+}
+
+.logoContainerAnimation {
+  composes: logoContainer;
+  animation-name: spin;
+  animation-duration: 1s;
+}
+
+.lightAnimation {
+  composes: logoContainer;
+  composes: logoContainerAnimation;
+  color: lilacBush;
+}
+
+.darkAnimation {
+  composes: logoContainer;
+  composes: logoContainerAnimation;
+  color: mineShaft;
+}
+
+@keyframes spin {
+    from {
+      transform:rotate(0deg);
+    }
+    to {
+      transform:rotate(-360deg);
+    }
+}
