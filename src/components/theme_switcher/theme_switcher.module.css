@@ -1,10 +1,32 @@
 @value lilacBush from '../../colors/colors.css';
 @value mineShaft from '../../colors/colors.css';
+@value blackColor from '../../colors/colors.css';
+@value whiteColor from '../../colors/colors.css';
 
 .logoContainer {
   font-size: 28px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   width: fit-content;
+  position: relative;
+  padding: 6px;
+}
+
+.inputToggle {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  padding: 0;
+  opacity: 0;
+}
+
+.inputToggle:focus + .lightLabel {
+  outline: 1px solid blackColor;
+}
+
+.inputToggle:focus + .darkLabel {
+  outline: 1px solid whiteColor;
 }
 
 .lightLogoContainer {

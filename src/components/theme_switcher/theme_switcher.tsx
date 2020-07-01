@@ -9,16 +9,22 @@ const baseStyles = require('./theme_switcher.module.css');
 type ThemeSwitcherStyles = {
   logoContainer: string;
   logoContainerAnimation: string;
+  inputToggle: string;
+  label: string;
 };
 
 const themedStyles: ThemedStyles<ThemeSwitcherStyles> = {
   [Theme.LIGHT]: {
     logoContainer: baseStyles.lightLogoContainer,
     logoContainerAnimation: baseStyles.lightAnimation,
+    inputToggle: baseStyles.inputToggle,
+    label: baseStyles.lightLabel,
   },
   [Theme.DARK]: {
     logoContainer: baseStyles.darkLogoContainer,
     logoContainerAnimation: baseStyles.darkAnimation,
+    inputToggle: baseStyles.inputToggle,
+    label: baseStyles.darkLabel,
   },
 };
 
@@ -29,7 +35,7 @@ type BaseThemeSwitcherProps = {
 export const ThemeSwitcher = observer(({ store }: BaseThemeSwitcherProps) => {
   const styles = useStyles(themedStyles);
   const [animate, setAnimate] = React.useState(styles.logoContainer)
-  const handleClick = React.useCallback(() => {
+  const handleToggle = React.useCallback(() => {
     store.setValue(!store.value);
     setAnimate(styles.logoContainerAnimation);
   }, [store, styles.logoContainerAnimation]);
@@ -39,8 +45,13 @@ export const ThemeSwitcher = observer(({ store }: BaseThemeSwitcherProps) => {
   }, [styles.logoContainer])
 
   return (
-    <div className={animate} onClick={handleClick} onAnimationEnd={onAnimationEnd}>
-      <FontAwesomeIcon icon={store.value ? faSun : faMoon}/>
-    </div>
+    <>
+      <input className={styles.inputToggle} type='checkbox' checked={store.value} onChange={handleToggle}/>
+      <label className={styles.label}>
+        <div className={animate} onClick={handleToggle} onAnimationEnd={onAnimationEnd}>
+          <FontAwesomeIcon icon={store.value ? faSun : faMoon}/>
+        </div>
+      </label>
+    </>
   );
 });
