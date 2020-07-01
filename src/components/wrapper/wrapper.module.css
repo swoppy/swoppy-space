@@ -1,0 +1,23 @@
+@value blackColor from '../../colors/colors.css';
+@value whiteColor from '../../colors/colors.css';
+
+.baseBackground {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+.daylightBackground {
+  composes: baseBackground;
+  background: whiteColor;
+}
+
+.midnightBackground {
+  composes: baseBackground;
+  background: blackColor;
+}
+
+.animation {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
