@@ -1,0 +1,32 @@
+@value whiteColor, mineShaft from '../../colors/colors.css';
+@value space: 16px;
+
+.indexContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.knobContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.greetingsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  padding: calc(space * 4);
+}
+
+.darkGreetingsContainer {
+  composes: greetingsContainer;
+  color: whiteColor;
+}
+
+.lightGreetingsContainer {
+  composes: greetingsContainer;
+  color: mineShaft;
+}

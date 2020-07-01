@@ -2,7 +2,7 @@ import { reaction } from 'mobx';
 import { GlobalThemeStore, Theme } from '../../ui/themes';
 import { BooleanStore } from '../../ui/generic_store';
 
-export class IndexStore {
+export class HomeStore {
   readonly theme: BooleanStore;
 
   constructor(theme: boolean) {
