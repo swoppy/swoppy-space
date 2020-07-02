@@ -1,7 +1,7 @@
 import React from 'react';
 import { Theme, ThemedStyles, useStyles } from "../../ui/themes";
 import { ThemeSwitcher } from "../../components/theme_switcher/theme_switcher";
-import { HomeStore } from '../../pages/store/home_store';
+import { HomeStore } from '../store/home_store';
 import text from './text/home_text';
 // vscode unable to recognize import path for some reason, so ended up using require
 const baseStyles = require("../css/home.module.css");
@@ -41,7 +41,7 @@ const ThemeSection = ({ store }: ThemeSectionProps) => {
   );
 };
 
-const Intro = () => {
+const IntroText = () => {
   const styles = useStyles(themedStyles);
   return (
     <div className={styles.greetingsContainer}>
@@ -53,16 +53,17 @@ const Intro = () => {
   );
 };
 
-type HomeProps = {
+type IntroProps = {
   store: HomeStore
 };
 
-export const Home = ({ store }: HomeProps) => {
+export const Intro = ({ store }: IntroProps) => {
   const styles = useStyles(themedStyles);
   return (
     <div className={styles.indexContainer}>
       <ThemeSection store={store}/>
-      <Intro/>
+      <IntroText/>
     </div>
   );
 };
+

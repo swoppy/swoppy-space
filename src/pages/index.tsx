@@ -3,30 +3,34 @@ import { Link } from "gatsby"
 import SEO from "../components/seo";
 import "./css/default.css";
 import { Theme, GlobalThemeStore, ThemeProvider } from "../ui/themes";
-import { Wrapper } from "../components/wrapper/wrapper";
+import { Wrapper, ScrollableArea } from "../components";
 import { observer } from "mobx-react";
-import { HomeStore } from "./store/home_store";
-import { Home } from "./componentPages/home";
+import { ThemeStore } from "./store/theme_store";
+import { Intro, Project } from "./componentPages";
 
 type IndexPageProps = {
-  store: HomeStore;
+  store: ThemeStore;
 };
 
 const BaseIndex = ({ store }: IndexPageProps) => {
   return (
   <>
     <SEO title=""/>
-    <Wrapper>
-      <Home store={store}/>
-      {/* <Link to="donate">Go to donate page</Link> <br /> */}
-    </Wrapper>
+    <ScrollableArea>
+      <Wrapper>
+        <Intro store={store}/>
+      </Wrapper>
+      <Wrapper>
+        <Project/>
+      </Wrapper>
+    </ScrollableArea>
   </>
   );
 };
 
 const IndexPage = observer(() => {
   const [store] = React.useState(
-    new HomeStore(GlobalThemeStore.get() === Theme.DARK)
+    new ThemeStore(GlobalThemeStore.get() === Theme.DARK)
   );
   return (
     <ThemeProvider value={GlobalThemeStore.get()}>
