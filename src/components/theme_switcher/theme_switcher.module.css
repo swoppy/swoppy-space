@@ -1,4 +1,4 @@
-@value lilacBush from '../../colors/colors.css';
+@value goldYellow from '../../colors/colors.css';
 @value mineShaft from '../../colors/colors.css';
 @value blackColor from '../../colors/colors.css';
 @value whiteColor from '../../colors/colors.css';
@@ -36,7 +36,7 @@
 
 .darkLogoContainer {
   composes: logoContainer;
-  color: lilacBush;
+  color: goldYellow;
 }
 
 .logoContainerAnimation {
@@ -48,7 +48,7 @@
 .lightAnimation {
   composes: logoContainer;
   composes: logoContainerAnimation;
-  color: lilacBush;
+  color: goldYellow;
 }
 
 .darkAnimation {
