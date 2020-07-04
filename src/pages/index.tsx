@@ -6,7 +6,7 @@ import { Theme, GlobalThemeStore, ThemeProvider } from "../ui/themes";
 import { Wrapper, ScrollableArea } from "../components";
 import { observer } from "mobx-react";
 import { ThemeStore } from "./store/theme_store";
-import { Intro, Project } from "./componentPages";
+import { Intro, Projects } from "./componentSections";
 
 type IndexPageProps = {
   store: ThemeStore;
@@ -21,7 +21,7 @@ const BaseIndex = ({ store }: IndexPageProps) => {
         <Intro store={store}/>
       </Wrapper>
       <Wrapper>
-        <Project/>
+        <Projects/>
       </Wrapper>
     </ScrollableArea>
   </>
