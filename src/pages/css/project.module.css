@@ -10,7 +10,7 @@
 @value space: 16px;
 
 .container {
-  height: 100%;
+  flex-grow: 1;
 }
 
 .lightContainer {
@@ -36,12 +36,17 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  flex: 0.1;
+  width: 100%;
+  padding-top: space;
 }
 
 .header span:first-child {
   font-size: 2em;
   font-weight: bold;
+}
+
+.header span:last-child {
+  margin-bottom: 4.2px;
 }
 
 .viewAllLink {
@@ -65,11 +70,12 @@
 }
 
 .projectContainer {
-  flex: 0.9;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 1fr;
   grid-gap: space;
   padding: calc(space * 2) 0;
+  height: 100%;
 }
 
 .project {
@@ -97,7 +103,7 @@
 }
 
 .description {
-  flex: 0.8;
+  flex: 1;
   background-color: vulcanApprox;
   border-radius: 8px 8px 0 0;
   display: flex;
@@ -108,28 +114,21 @@
 }
 
 .sub {
-  flex: 0.2;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: space space;
 }
 
-.name {
-  flex: 0.8;
-}
-
 .lightName {
-  composes: name;
   color: mineShaft;
 }
 
 .darkName {
-  composes: name;
   color: mercury
 }
 
 .projectLink {
-  flex: 0.2;
   color: mercury;
   cursor: pointer;
 }
