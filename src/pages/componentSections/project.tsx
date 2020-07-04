@@ -47,7 +47,28 @@ const themedStyles: ThemedStyles<ProjectStyles> = {
   },
 };
 
-export const Project = () => {
+const ProjectList = () => {
+  const styles = useStyles(themedStyles);
+  return (
+  <div className={styles.projectContainer}>
+    {github.map((item) => {
+      return (
+        <div className={styles.project}>
+          <div className={styles.description}>
+            <span>{item.description}</span>
+          </div>
+          <div className={styles.sub}>
+            <span className={styles.name}>{item.name}</span>
+            <span className={styles.projectLink}>{item.projectLink}</span>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+  );
+};
+
+export const Projects = () => {
   const styles = useStyles(themedStyles);
   return (
     <div className={styles.container}>
@@ -64,21 +85,7 @@ export const Project = () => {
             </a>
           </span>
         </div>
-        <div className={styles.projectContainer}>
-          {github.map((item) => {
-            return (
-              <div className={styles.project}>
-                <div className={styles.description}>
-                  <span>{item.description}</span>
-                </div>
-                <div className={styles.sub}>
-                  <span className={styles.name}>{item.name}</span>
-                  <span className={styles.projectLink}>{item.projectLink}</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <ProjectList/>
       </div>
     </div>
   );

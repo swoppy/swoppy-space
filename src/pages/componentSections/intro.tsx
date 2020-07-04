@@ -1,19 +1,19 @@
 import React from 'react';
 import { Theme, ThemedStyles, useStyles } from "../../ui/themes";
-import { ThemeSwitcher } from "../../components/theme_switcher/theme_switcher";
+import { ThemeSwitcher } from "../../components";
 import { ThemeStore } from '../store/theme_store';
 import text from './text/home_text';
 // vscode unable to recognize import path for some reason, so ended up using require
-const baseStyles = require("../css/home.module.css");
+const baseStyles = require("../css/intro.module.css");
 
-type HomeStyles = {
+type IntroStyles = {
   pageWrapper: string;
   indexContainer: string;
   knobContainer: string;
   greetingsContainer: string;
 }
 
-const themedStyles: ThemedStyles<HomeStyles> = {
+const themedStyles: ThemedStyles<IntroStyles> = {
   [Theme.LIGHT]: {
     indexContainer: baseStyles.indexContainer,
     knobContainer: baseStyles.knobContainer,
@@ -45,10 +45,8 @@ const IntroText = () => {
   const styles = useStyles(themedStyles);
   return (
     <div className={styles.greetingsContainer}>
-      <div>
       <h1>{text.intro1}</h1>
-      <h2>{text.intro2}</h2>
-      </div>
+      <h4><p>{text.intro2}</p></h4>
     </div>
   );
 };
@@ -66,4 +64,3 @@ export const Intro = ({ store }: IntroProps) => {
     </div>
   );
 };
-

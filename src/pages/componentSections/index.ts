@@ -1,2 +1,2 @@
-export * from './into';
+export * from './intro';
 export * from './project';
