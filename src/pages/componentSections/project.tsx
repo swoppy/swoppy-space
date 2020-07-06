@@ -1,21 +1,28 @@
-import React from 'react';
-import { Theme, ThemedStyles, useStyles } from '../../ui/themes';
-import text from './text/project_text';
-import { github } from '../../services/placeholder';
-const baseStyles = require('../css/project.module.css');
+import React, { useState } from "react"
+import { Theme, ThemedStyles, useStyles } from "../../ui/themes"
+import text from "./text/project_text"
+import {
+  githubFetchRepo,
+  allowedRepo,
+  RepoName,
+  RepoProps,
+  RepoKey,
+} from "../../services/project_resource"
+import { ExternalLink } from "../../components/"
+const baseStyles = require("../css/project.module.css")
 
 type ProjectStyles = {
-  container: string;
-  content: string;
-  header: string;
-  viewAllLink: string;
-  wrapper: string;
-  projectContainer: string;
-  project: string;
-  description: string;
-  sub: string;
-  name: string;
-  projectLink: string;
+  container: string
+  content: string
+  header: string
+  viewAllLink: string
+  wrapper: string
+  projectContainer: string
+  project: string
+  description: string
+  sub: string
+  name: string
+  projectLink: string
 }
 
 const themedStyles: ThemedStyles<ProjectStyles> = {
@@ -45,48 +52,67 @@ const themedStyles: ThemedStyles<ProjectStyles> = {
     name: baseStyles.darkName,
     projectLink: baseStyles.projectLink,
   },
-};
+}
+
+// for lazy loading style pattern, wherin mitigates useEffect race
+// can transfer this to useEffect as well, we'll see.
+let initialResource: any = []
+githubFetchRepo().then(item => {
+  return (initialResource = item.filter((prop: Record<RepoKey, RepoName>) => {
+    if (allowedRepo.includes(prop.name)) {
+      return prop
+    }
+  }))
+})
+
+const ProjectBox = () => {
+  const styles = useStyles(themedStyles)
+  const [resource] = useState(initialResource)
+  return (
+    <>
+      {resource.map((item: RepoProps, key: number) => {
+        return (
+          <div className={styles.project} key={key}>
+            <div className={styles.description}>
+              <span>{item.description}</span>
+            </div>
+            <div className={styles.sub}>
+              <span className={styles.name}>{item.name}</span>
+              <span className={styles.projectLink}>
+                <ExternalLink to={item.html_url!}>link</ExternalLink>
+              </span>
+            </div>
+          </div>
+        )
+      })}
+    </>
+  )
+}
 
 const ProjectList = () => {
-  const styles = useStyles(themedStyles);
+  const styles = useStyles(themedStyles)
   return (
-  <div className={styles.projectContainer}>
-    {github.map((item) => {
-      return (
-        <div className={styles.project}>
-          <div className={styles.description}>
-            <span>{item.description}</span>
-          </div>
-          <div className={styles.sub}>
-            <span className={styles.name}>{item.name}</span>
-            <span className={styles.projectLink}>{item.projectLink}</span>
-          </div>
-        </div>
-      );
-    })}
-  </div>
-  );
-};
+    <div className={styles.projectContainer}>
+      <ProjectBox />
+    </div>
+  )
+}
 
 export const Projects = () => {
-  const styles = useStyles(themedStyles);
+  const styles = useStyles(themedStyles)
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.header}>
           <span>{text.project}</span>
           <span>
-            <a href={text.viewAllLink}
-              rel='noopener noreferrer'
-              target='_blank'
-              className={styles.viewAllLink}
-            >
+            <ExternalLink to={text.viewAllLink} className={styles.viewAllLink}>
               {text.viewAll}
-            </a>
+            </ExternalLink>
           </span>
         </div>
-        <ProjectList/>
+        <ProjectList />
       </div>
     </div>
-  );
-};
+  )
+}
