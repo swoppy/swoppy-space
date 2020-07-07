@@ -9,6 +9,7 @@ import {
   RepoKey,
 } from "../../services/project_resource"
 import { ExternalLink } from "../../components/"
+import { abbvTech, LangString, Tech } from "../../ui/helpers/section_helpers"
 const baseStyles = require("../css/project.module.css")
 
 type ProjectStyles = {
@@ -22,7 +23,10 @@ type ProjectStyles = {
   description: string
   sub: string
   name: string
-  projectLink: string
+  language: string
+  jsBall: string
+  tsBall: string
+  neverBall: string
 }
 
 const themedStyles: ThemedStyles<ProjectStyles> = {
@@ -37,7 +41,10 @@ const themedStyles: ThemedStyles<ProjectStyles> = {
     description: baseStyles.description,
     sub: baseStyles.sub,
     name: baseStyles.lightName,
-    projectLink: baseStyles.projectLink,
+    language: baseStyles.language,
+    jsBall: baseStyles.jsBall,
+    tsBall: baseStyles.tsBall,
+    neverBall: baseStyles.neverBall,
   },
   [Theme.DARK]: {
     container: baseStyles.darkContainer,
@@ -50,12 +57,27 @@ const themedStyles: ThemedStyles<ProjectStyles> = {
     description: baseStyles.description,
     sub: baseStyles.sub,
     name: baseStyles.darkName,
-    projectLink: baseStyles.projectLink,
+    language: baseStyles.language,
+    jsBall: baseStyles.jsBall,
+    tsBall: baseStyles.tsBall,
+    neverBall: baseStyles.neverBall,
   },
+}
+
+const getLangStyle = (styles: ProjectStyles, lang: LangString | null) => {
+  switch (lang) {
+    case Tech.JavaScript:
+      return styles.jsBall
+    case Tech.TypeScript:
+      return styles.tsBall
+    default:
+      return styles.neverBall
+  }
 }
 
 // for lazy loading style pattern, wherin mitigates useEffect race
 // can transfer this to useEffect as well, we'll see.
+// filter the response to 4 specific objects
 let initialResource: any = []
 githubFetchRepo().then(item => {
   return (initialResource = item.filter((prop: Record<RepoKey, RepoName>) => {
@@ -73,14 +95,15 @@ const ProjectBox = () => {
       {resource.map((item: RepoProps, key: number) => {
         return (
           <div className={styles.project} key={key}>
-            <div className={styles.description}>
+            <ExternalLink to={item.html_url!} className={styles.description}>
               <span>{item.description}</span>
-            </div>
+            </ExternalLink>
             <div className={styles.sub}>
               <span className={styles.name}>{item.name}</span>
-              <span className={styles.projectLink}>
-                <ExternalLink to={item.html_url!}>link</ExternalLink>
-              </span>
+              <div className={styles.language}>
+                <span className={getLangStyle(styles, item.language)}></span>
+                <span>{abbvTech(item.language)}</span>
+              </div>
             </div>
           </div>
         )
