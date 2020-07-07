@@ -1,3 +1,9 @@
+import { LangString } from "../ui/helpers/section_helpers"
+
+/*
+ * TODO: improve type def, and maybe add error handling
+ */
+
 export enum RepoName {
   SWOPPY_SPACE = "swoppy-space",
   ZCASH_HALVING = "zcash-halving",
@@ -18,7 +24,7 @@ export type RepoProps = {
   description: string | null
   html_url: string | null
   homepage?: string | null
-  language: string | null
+  language: LangString | null
 }
 
 export const allowedRepo: RepoName[] = [
