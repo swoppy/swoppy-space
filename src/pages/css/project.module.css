@@ -6,7 +6,8 @@
 @value vulcanApprox from '../../colors/colors.css';
 @value goldYellow from '../../colors/colors.css';
 @value silverApprox from '../../colors/colors.css';
-@value jade from '../../colors/colors.css';
+@value bermuda from '../../colors/colors.css';
+@value jade, js, ts from '../../colors/colors.css';
 @value space: 16px;
 
 .container {
@@ -73,23 +74,25 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-auto-rows: 1fr;
-  grid-gap: space;
+  grid-gap: calc(space * 2);
   padding: calc(space * 2) 0;
   height: 100%;
 }
 
 .project {
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .project:hover {
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  transform: scale(1.02);
+  -webkit-transform: translateY(-6px);
+  -ms-transform: translateY(-6px);
+  transform: translateY(-6px);
+  transition: all 0.4s;
 }
 
 .lighProject {
@@ -111,6 +114,7 @@
   align-items: center;
   padding: space space;
   color: silverApprox;
+  text-decoration: none;
 }
 
 .sub {
@@ -125,12 +129,36 @@
 }
 
 .darkName {
-  color: mercury
+  color: mercury;
 }
 
-.projectLink {
-  color: mercury;
-  cursor: pointer;
+.language {
+  display: flex;
+  align-items: center;
+}
+
+.ball {
+  width: 14px;
+  height: 14px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.jsBall {
+  composes: ball;
+  background-color: js;
+}
+
+.tsBall {
+  composes: ball;
+  background-color: ts;
+}
+
+/* put it to colors.css as color entry */
+.neverBall {
+  composes: ball;
+  background-color: wheat;
 }
 
 @keyframes pulse {
