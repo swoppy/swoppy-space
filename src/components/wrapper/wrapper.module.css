@@ -1,5 +1,10 @@
-@value vulcanApprox from '../../colors/colors.css';
-@value whiteColor from '../../colors/colors.css';
+@value vulcanApprox from '../../assets/colors.css';
+@value whiteColor from '../../assets/colors.css';
+
+.animation {
+  opacity: 0.2;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
 
 .baseBackground {
   display: flex;
@@ -9,6 +14,8 @@
   width: 100%;
   scroll-snap-align: start;
   letter-spacing: 1.4px;
+  overflow-x: hidden;
+  composes: animation;
 }
 
 .daylightBackground {
@@ -21,7 +28,8 @@
   background: vulcanApprox;
 }
 
-.animation {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
