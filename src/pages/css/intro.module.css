@@ -1,4 +1,5 @@
-@value whiteColor, mineShaft from '../../colors/colors.css';
+@import "../../assets/fonts.css";
+@value whiteColor, mineShaft from '../../assets/colors.css';
 @value space: 16px;
 
 .indexContainer {
@@ -9,19 +10,37 @@
 
 .knobContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .greetingsContainer {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  flex: 1;
-  padding: 0 calc(space * 2);
+  flex: 0.4;
+  justify-content: center;
 }
 
-.greetingsContainer div {
-  /* margin-bottom: 40px; */
+.greetingsContainer h1 {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.greetingsContainer h4 {
+  font-family: monospace, sans-serif;
+  font-weight: lighter;
+  margin: 0;
+  font-size: 14px;
+}
+
+.greetingsContainer h4 > p {
+  margin-bottom: 0;
 }
 
 .darkGreetingsContainer {
@@ -32,4 +51,34 @@
 .lightGreetingsContainer {
   composes: greetingsContainer;
   color: mineShaft;
+}
+
+.square {
+  flex: 0.6;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 860px) {
+  .wrapper {
+    flex-direction: row;
+  }
+  .greetingsContainer {
+    padding: 0 calc(space * 2);
+    width: 500px;
+    margin-bottom: 10em;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .greetingsContainer {
+    text-align: left;
+  }
+  .greetingsContainer h1 {
+    font-size: 28px;
+  }
+  .greetingsContainer h4 > p {
+    font-size: 16px;
+  }
 }
