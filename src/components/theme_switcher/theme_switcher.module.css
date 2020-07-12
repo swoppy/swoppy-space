@@ -1,7 +1,7 @@
-@value goldYellow from '../../colors/colors.css';
-@value mineShaft from '../../colors/colors.css';
-@value blackColor from '../../colors/colors.css';
-@value whiteColor from '../../colors/colors.css';
+@value goldYellow from '../../assets/colors.css';
+@value mineShaft from '../../assets/colors.css';
+@value blackColor from '../../assets/colors.css';
+@value whiteColor from '../../assets/colors.css';
 
 .logoContainer {
   font-size: 28px;
@@ -10,7 +10,6 @@
   cursor: pointer;
   width: fit-content;
   position: relative;
-  padding: 6px;
 }
 
 .inputToggle {
@@ -58,10 +57,10 @@
 }
 
 @keyframes spin {
-    from {
-      transform:rotate(0deg);
-    }
-    to {
-      transform:rotate(-360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
