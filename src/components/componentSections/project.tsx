@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Theme, ThemedStyles, useStyles } from "../../ui/themes"
 import text from "./text/project_text"
 import {
@@ -75,21 +75,30 @@ const getLangStyle = (styles: ProjectStyles, lang: LangString | null) => {
   }
 }
 
-// for lazy loading style pattern, wherin mitigates useEffect race
-// can transfer this to useEffect as well, we'll see.
-// filter the response to 4 specific objects
-let initialResource: any = []
-githubFetchRepo().then(item => {
-  return (initialResource = item.filter((prop: Record<RepoKey, RepoName>) => {
-    if (allowedRepo.includes(prop.name)) {
-      return prop
-    }
-  }))
-})
-
 const ProjectBox = () => {
   const styles = useStyles(themedStyles)
-  const [resource] = useState(initialResource)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [error, setError] = useState(null)
+  const [resource, setResource] = useState([])
+
+  useEffect(() => {
+    githubFetchRepo().then(
+      item => {
+        setIsLoaded(true)
+        setResource(
+          item.filter((prop: Record<RepoKey, RepoName>) => {
+            if (allowedRepo.includes(prop.name)) {
+              return prop
+            }
+          })
+        )
+      },
+      error => {
+        setIsLoaded(true)
+        setError(error)
+      }
+    )
+  }, [])
   return (
     <>
       {resource.map((item: RepoProps, key: number) => {
