@@ -8,9 +8,9 @@ import {
   RepoProps,
   RepoKey,
 } from "../../services/project_resource"
-import { ExternalLink } from "../../components/"
+import { ExternalLink } from ".."
 import { abbvTech, LangString, Tech } from "../../ui/helpers/section_helpers"
-const baseStyles = require("../css/project.module.css")
+const baseStyles = require("../../css/project.module.css")
 
 type ProjectStyles = {
   container: string

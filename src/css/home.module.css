@@ -1,4 +1,4 @@
-@value whiteColor, mineShaft from '../../colors/colors.css';
+@value whiteColor, mineShaft from '../assets/colors.css';
 @value space: 16px;
 
 .indexContainer {

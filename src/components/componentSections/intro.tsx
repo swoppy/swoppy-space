@@ -1,11 +1,11 @@
 import React from "react"
 import { Theme, ThemedStyles, useStyles } from "../../ui/themes"
-import { ThemeSwitcher } from "../../components"
-import { ThemeStore } from "../store/theme_store"
+import { ThemeSwitcher } from ".."
+import { ThemeStore } from "../../store/theme_store"
 import text from "./text/home_text"
-import { IntroIsometric } from "../../components/isometric_art/intro_isometric"
+import { IntroIsometric } from "../isometric_art/intro_isometric"
 // vscode unable to recognize import path for some reason, so ended up using require
-const baseStyles = require("../css/intro.module.css")
+const baseStyles = require("../../css/intro.module.css")
 
 type IntroStyles = {
   pageWrapper: string

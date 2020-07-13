@@ -5,7 +5,6 @@ module.exports = {
     author: `Jason`,
   },
   plugins: [
-    `gatsby-transformer-typescript-css-modules`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-css-modules-typings`,
     `gatsby-plugin-react-helmet`,
@@ -30,6 +29,7 @@ module.exports = {
         icon: `src/assets/images/swoppy.png`, // This path is relative to the root of the site.
       },
     },
+    // `gatsby-plugin-offline`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
