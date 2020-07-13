@@ -1,42 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
-import SEO from "../components/seo"
-import "../css/default.css"
-import { Theme, GlobalThemeStore, ThemeProvider } from "../ui/themes"
-import { Wrapper, ScrollableArea } from "../components"
-import { observer } from "mobx-react"
-import { ThemeStore } from "../store/theme_store"
-import { Intro, Projects } from "../components/componentSections"
+import Loadable from "@loadable/component"
 
-type IndexPageProps = {
-  store: ThemeStore
+// TODO: Maybe it's better to do the loadable thing on a specific component
+// rather than an entire section like this stuff
+
+const ClientSide = Loadable(() =>
+  import("../components/componentSections/base")
+)
+const Index = () => {
+  return <ClientSide />
 }
 
-const BaseIndex = ({ store }: IndexPageProps) => {
-  return (
-    <>
-      <SEO title="" />
-      <ScrollableArea>
-        <Wrapper>
-          <Intro store={store} />
-        </Wrapper>
-        <Wrapper>
-          <Projects />
-        </Wrapper>
-      </ScrollableArea>
-    </>
-  )
-}
-
-const IndexPage = observer(() => {
-  const [store] = React.useState(
-    new ThemeStore(GlobalThemeStore.get() === Theme.DARK)
-  )
-  return (
-    <ThemeProvider value={GlobalThemeStore.get()}>
-      <BaseIndex store={store} />
-    </ThemeProvider>
-  )
-})
-
-export default IndexPage
+export default Index
