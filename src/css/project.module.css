@@ -1,5 +1,5 @@
 @import "../assets/fonts.css";
-@value mineShaftApprox from '../assets/colors.css';
+@value vulcanApprox from '../assets/colors.css';
 @value whiteColor from '../assets/colors.css';
 @value mineShaft from '../assets/colors.css';
 @value mercury from '../assets/colors.css';
@@ -8,7 +8,7 @@
 @value goldYellow from '../assets/colors.css';
 @value silverApprox from '../assets/colors.css';
 @value bermuda from '../assets/colors.css';
-@value jade, js, ts from '../assets/colors.css';
+@value js, ts from '../assets/colors.css';
 @value space: 16px;
 
 .container {
@@ -19,11 +19,27 @@
   composes: container;
   color: mineShaft;
   background-color: mercury;
+  background: repeating-linear-gradient(
+    135deg,
+    mercury,
+    mercury,
+    5px,
+    whiteColor 0,
+    whiteColor 10px
+  );
 }
 
 .darkContainer {
   composes: container;
-  background-color: mineShaftApprox;
+  background-color: vulcanApprox;
+  background: repeating-linear-gradient(
+    135deg,
+    vulcanApprox,
+    vulcanApprox,
+    5px,
+    #282828 0,
+    #282828 10px
+  );
   color: whiteColor;
 }
 
@@ -127,6 +143,7 @@
   padding: space space;
   font-size: 14px;
   font-weight: bold;
+  font-family: Montserrat, sans-serif;
 }
 
 .lightName {
@@ -168,7 +185,7 @@
 
 @keyframes pulse {
   to {
-    color: jade;
+    color: goldYellow;
   }
 }
 
