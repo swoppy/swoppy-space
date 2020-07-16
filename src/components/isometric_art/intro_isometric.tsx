@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState, useCallback } from "react"
 import { useStyles, ThemedStyles, Theme } from "../../ui/themes"
-import { Bitcoin_qr } from "../image/btc_qr"
-import { Monero_qr } from "../image/xmr_qr"
+import { ModalStore, Modal } from "../modal"
+import { observer } from "mobx-react"
+import { DivMouseEvent } from "../../ui/types"
+import { QrString, QrBitcoin, QrMonero, QR, QRTEXT } from "../image"
 const baseStyles = require("./intro_isometric.module.css")
 
 type IntroIsometricStyles = {
@@ -15,6 +17,8 @@ type IntroIsometricStyles = {
   orangelg: string
   btc: string
   floor: string
+  modalContent: string
+  qr: string
 }
 
 const themedStyles: ThemedStyles<IntroIsometricStyles> = {
@@ -29,6 +33,8 @@ const themedStyles: ThemedStyles<IntroIsometricStyles> = {
     orangelg: baseStyles.orangelg,
     btc: baseStyles.btc,
     floor: baseStyles.floor,
+    modalContent: baseStyles.lightModalContent,
+    qr: baseStyles.qr,
   },
   [Theme.DARK]: {
     gridSide: baseStyles.gridSide,
@@ -41,6 +47,8 @@ const themedStyles: ThemedStyles<IntroIsometricStyles> = {
     orangelg: baseStyles.orangelg,
     btc: baseStyles.btc,
     floor: baseStyles.floor,
+    modalContent: baseStyles.darkModalContent,
+    qr: baseStyles.qr,
   },
 }
 
@@ -57,10 +65,43 @@ const Filler = ({ length, content = "" }: FillerProps) => {
   return <>{fillers}</>
 }
 
-export const IntroIsometric = () => {
+type ModalContentProp = {
+  store: ModalStore
+  qr: QrString | null
+}
+
+const ModalContent = observer(({ store, qr }: ModalContentProp) => {
   const styles = useStyles(themedStyles)
   return (
+    <div className={styles.modalContent}>
+      <button onClick={store.hideModal}></button>
+      <div>{qr === QR.BTC ? <QrBitcoin /> : <QrMonero />}</div>
+      <div>{qr === QR.BTC ? QRTEXT.btcAddress : QRTEXT.xmrAddress}</div>
+    </div>
+  )
+})
+
+type IntroIsometricProp = {
+  store: ModalStore
+}
+
+const BaseIsometric = observer(({ store }: IntroIsometricProp) => {
+  const styles = useStyles(themedStyles)
+  const [qr, setQr] = useState<QrString | null>(null)
+
+  const onShowQr = useCallback(
+    (event: DivMouseEvent) => {
+      setQr(event.currentTarget.id === QR.BTC ? QR.BTC : QR.XMR)
+      store.showModal()
+    },
+    [store, qr]
+  )
+
+  return (
     <>
+      <Modal store={store}>
+        <ModalContent store={store} qr={qr} />
+      </Modal>
       <div className={styles.gridSide}>
         <Filler length={11} /> {/*Generates 11 divs*/}
         <div className={styles.window}></div>
@@ -84,9 +125,7 @@ export const IntroIsometric = () => {
         <Filler length={26} />
         <div className={styles.wallA}></div>
         <Filler length={16} />
-        <div>
-          <Bitcoin_qr />
-        </div>
+        <div className={styles.roof}></div>
         <Filler length={4} />
         <div className={styles.window}></div>
         <Filler length={1} />
@@ -105,10 +144,12 @@ export const IntroIsometric = () => {
         <Filler length={50} />
         <div className={styles.roof}></div>
         <Filler length={120} />
-        <div className={styles.roof}></div>
+        <div className={styles.qr} onClick={onShowQr} id={QR.BTC}>
+          <QrBitcoin />
+        </div>
         <Filler length={55} />
-        <div>
-          <Monero_qr />
+        <div className={styles.qr} onClick={onShowQr} id={QR.XMR}>
+          <QrMonero />
         </div>
         <Filler length={1} />
         <div className={styles.floor}></div>
@@ -128,4 +169,9 @@ export const IntroIsometric = () => {
       </div>
     </>
   )
-}
+})
+
+export const Isometric = observer(() => {
+  const [store] = useState(new ModalStore())
+  return <BaseIsometric store={store} />
+})

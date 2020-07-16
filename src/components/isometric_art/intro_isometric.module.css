@@ -1,3 +1,5 @@
+@import "../../assets/fonts.css";
+@value whiteColor, mineShaft, vulcanApprox, goldYellow from '../../assets/colors.css';
 @value space: 16px;
 
 @value mirage: #202040;
@@ -56,4 +58,87 @@
 
 .wallA {
   background-color: mirage;
+}
+
+.qr:hover {
+  outline: 1px solid goldYellow;
+  cursor: pointer;
+}
+
+.modalContent {
+  z-index: 11000;
+  position: absolute;
+  top: 80px;
+  height: 400px;
+  background-color: whiteColor;
+  width: 400px;
+  max-width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  word-break: break-all;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  height: fit-content;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalContent button {
+  align-self: flex-end;
+  border: none;
+  margin: 0;
+}
+
+.modalContent button {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  background: none;
+  cursor: pointer;
+  opacity: 0.3;
+}
+.modalContent button:hover {
+  opacity: 1;
+}
+.modalContent button:before,
+.modalContent button:after {
+  position: absolute;
+  top: 6px;
+  content: " ";
+  height: 22px;
+  width: 2px;
+  background-color: whiteColor;
+}
+.modalContent button:before {
+  transform: rotate(45deg);
+}
+.modalContent button:after {
+  transform: rotate(-45deg);
+}
+
+.modalContent div:nth-child(3) {
+  padding: 6px;
+}
+
+.lightModalContent {
+  composes: modalContent;
+  color: mineShaft;
+  background-color: whiteColor;
+}
+
+.darkModalContent {
+  composes: modalContent;
+  color: whiteColor;
+  background-color: vulcanApprox;
+}
+
+.lightModalContent button:before,
+.lightModalContent button:after {
+  position: absolute;
+  top: 6px;
+  content: " ";
+  height: 22px;
+  width: 2px;
+  background-color: mineShaft;
 }
