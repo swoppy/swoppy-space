@@ -1,12 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
-import SEO from "../seo"
 import "../../css/default.css"
 import { Theme, GlobalThemeStore, ThemeProvider } from "../../ui/themes"
 import { Wrapper, ScrollableArea } from "../../components"
 import { observer } from "mobx-react"
 import { ThemeStore } from "../../store/theme_store"
-import { Intro, Projects } from "../../components/componentSections"
+import { Contact, Intro, Projects } from "../componentSections"
+import SEO from "../seo/seo"
 
 type IndexPageProps = {
   store: ThemeStore
@@ -22,6 +21,9 @@ const BaseIndex = ({ store }: IndexPageProps) => {
         </Wrapper>
         <Wrapper>
           <Projects />
+        </Wrapper>
+        <Wrapper>
+          <Contact />
         </Wrapper>
       </ScrollableArea>
     </>

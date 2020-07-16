@@ -3,7 +3,7 @@ import { Theme, ThemedStyles, useStyles } from "../../ui/themes"
 import { ThemeSwitcher } from ".."
 import { ThemeStore } from "../../store/theme_store"
 import text from "./text/home_text"
-import { IntroIsometric } from "../isometric_art/intro_isometric"
+import { Isometric } from "../isometric_art/intro_isometric"
 // vscode unable to recognize import path for some reason, so ended up using require
 const baseStyles = require("../../css/intro.module.css")
 
@@ -59,7 +59,7 @@ const IntroSection = () => {
         </h4>
       </div>
       <div className={styles.square}>
-        <IntroIsometric />
+        <Isometric />
       </div>
     </div>
   )

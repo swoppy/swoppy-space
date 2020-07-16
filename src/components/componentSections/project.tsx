@@ -99,6 +99,7 @@ const ProjectBox = () => {
       }
     )
   }, [])
+  
   return (
     <>
       {resource.map((item: RepoProps, key: number) => {
