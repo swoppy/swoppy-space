@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { QR } from "./type"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,7 +14,7 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-export const Bitcoin_qr = () => {
+export const QrBitcoin = () => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "btc.png" }) {
@@ -31,6 +32,7 @@ export const Bitcoin_qr = () => {
       fluid={data.placeholderImage.childImageSharp.fluid}
       imgStyle={{ objectFit: "unset" }}
       style={{ width: "100%", height: "100%" }}
+      alt={QR.BTC}
     />
   )
 }
