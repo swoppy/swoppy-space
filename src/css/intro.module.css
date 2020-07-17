@@ -10,7 +10,7 @@
 
 .knobContainer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .wrapper {
@@ -29,17 +29,17 @@
 .greetingsContainer h1 {
   font-family: Montserrat, sans-serif;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .greetingsContainer h2 {
   font-family: monospace, sans-serif;
-  font-weight: lighter;
+  font-weight: bold;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  opacity: 0.8;
 }
-
-.greetingsContainer h4 > p {
+\ .greetingsContainer h2 > p {
   margin-bottom: 0;
 }
 
@@ -69,6 +69,9 @@
     margin-bottom: 10em;
     align-self: center;
   }
+  .knobContainer {
+    justify-content: flex-start;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -76,9 +79,9 @@
     text-align: left;
   }
   .greetingsContainer h1 {
-    font-size: 34px;
+    font-size: 36px;
   }
-  .greetingsContainer h4 > p {
-    font-size: 16px;
+  .greetingsContainer h2 > p {
+    font-size: 18px;
   }
 }

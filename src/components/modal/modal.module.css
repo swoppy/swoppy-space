@@ -1,5 +1,9 @@
 @value blackColor from '../../assets/colors.css';
 
+.animation {
+  animation: reveal 0.25s ease-in-out forwards;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -23,4 +27,14 @@
   right: 0;
   bottom: 0;
   z-index: 10000;
+  composes: animation;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
 }
