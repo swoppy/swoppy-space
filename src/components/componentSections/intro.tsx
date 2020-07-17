@@ -54,9 +54,9 @@ const IntroSection = () => {
     <div className={styles.wrapper}>
       <div className={styles.greetingsContainer}>
         <h1>{text.intro1}</h1>
-        <h4>
+        <h2>
           <p>{text.intro2}</p>
-        </h4>
+        </h2>
       </div>
       <div className={styles.square}>
         <Isometric />
