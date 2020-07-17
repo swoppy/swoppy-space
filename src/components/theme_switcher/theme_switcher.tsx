@@ -51,9 +51,8 @@ export const ThemeSwitcher = observer(({ store }: BaseThemeSwitcherProps) => {
         type="checkbox"
         checked={store.value}
         onChange={handleToggle}
-        id="theme"
       />
-      <label className={styles.label} htmlFor="theme">
+      <label className={styles.label}>
         <div
           className={animate}
           onClick={handleToggle}
