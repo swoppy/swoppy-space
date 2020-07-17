@@ -36,7 +36,7 @@ export const Contact = () => {
       <div className={styles.closingSection}>
         <div className={styles.getInTouch}>
           <h2>{text.closing}</h2>
-          <h4>
+          <h3>
             {text.contacts}
             <ExternalLink to={text.emailAddress} className={styles.link}>
               {text.email}
@@ -45,7 +45,7 @@ export const Contact = () => {
             <ExternalLink to={text.twitterAddress} className={styles.link}>
               {text.twitter}
             </ExternalLink>
-          </h4>
+          </h3>
         </div>
         <div className={styles.footer}>
           <div>{text.footer.copyRight}</div>

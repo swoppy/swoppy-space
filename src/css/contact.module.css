@@ -1,4 +1,4 @@
-@import "../assets/fonts.css";
+@import "../static/fonts/fonts.css";
 @value vulcanApprox, whiteColor, mineShaft, mercury, goldYellow from '../assets/colors.css';
 @value mirage from '../components/isometric_art/intro_isometric.module.css';
 @value space: 16px;
@@ -53,9 +53,11 @@
   font-family: Montserrat, sans-serif;
 }
 
-.getInTouch h4 {
-  margin-top: 16px;
+.getInTouch h3 {
+  margin: 0;
+  padding-top: 16px;
   font-family: monospace, sans-serif;
+  font-size: 16px;
 }
 
 .lightGetInTouch {
