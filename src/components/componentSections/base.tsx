@@ -6,6 +6,7 @@ import { observer } from "mobx-react"
 import { ThemeStore } from "../../store/theme_store"
 import { Contact, Intro, Projects } from "../componentSections"
 import SEO from "../seo/seo"
+import { PerformanceLink } from "../performance_link/performance_link"
 
 type IndexPageProps = {
   store: ThemeStore
@@ -15,6 +16,7 @@ const BaseIndex = ({ store }: IndexPageProps) => {
   return (
     <>
       <SEO title="" />
+      <PerformanceLink />
       <ScrollableArea>
         <Wrapper>
           <Intro store={store} />
