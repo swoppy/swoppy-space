@@ -13,11 +13,13 @@
 }
 
 .inputToggle {
-  height: 32px;
-  width: 32px;
+  height: 22px;
+  width: 22px;
   position: absolute;
   padding: 0;
   opacity: 0;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .inputToggle:focus + .lightLabel {
