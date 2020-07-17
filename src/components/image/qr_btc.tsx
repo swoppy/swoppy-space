@@ -19,7 +19,7 @@ export const QrBitcoin = () => {
     query {
       placeholderImage: file(relativePath: { eq: "btc.png" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxHeight: 400) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -30,7 +30,7 @@ export const QrBitcoin = () => {
   return (
     <Img
       fluid={data.placeholderImage.childImageSharp.fluid}
-      imgStyle={{ objectFit: "unset" }}
+      imgStyle={{ objectFit: "fill" }}
       style={{ width: "100%", height: "100%" }}
       alt={QR.BTC}
     />

@@ -8,7 +8,7 @@ export const QrMonero = () => {
     query {
       file(relativePath: { eq: "xmr.png" }) {
         childImageSharp {
-          fluid(maxWidth: 800, maxHeight: 800) {
+          fluid(maxHeight: 400) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -19,7 +19,7 @@ export const QrMonero = () => {
   return (
     <Img
       fluid={data.file.childImageSharp.fluid}
-      imgStyle={{ objectFit: "unset" }}
+      imgStyle={{ objectFit: "fill" }}
       style={{ width: "100%", height: "100%" }}
       alt={QR.XMR}
     />
