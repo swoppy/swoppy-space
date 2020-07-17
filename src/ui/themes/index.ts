@@ -1,5 +1,5 @@
-import React from "react"
-import { observable } from "mobx"
+import React, { useState, useEffect } from "react"
+import { observable, set } from "mobx"
 
 export enum Theme {
   LIGHT = "light",
@@ -16,11 +16,15 @@ export const getTheme = (localItem: string | null): Theme => {
   }
 }
 
+export enum ThemeLocalKey {
+  SST = "swoppy-space-theme",
+}
+
 export const GlobalThemeStore = observable.box(
-  getTheme(localStorage.getItem("swoppySpace-theme"))
+  getTheme(localStorage.getItem(ThemeLocalKey.SST))
 )
 export const ThemeContext = React.createContext(
-  getTheme(localStorage.getItem("swoppySpace-theme"))
+  getTheme(localStorage.getItem(ThemeLocalKey.SST))
 )
 export const ThemeProvider = ThemeContext.Provider
 export const ThemeConsumer = ThemeContext.Consumer
