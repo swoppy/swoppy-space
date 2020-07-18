@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Swoppy`,
-    description: `Personal website of Swoppy`,
+    description: `A personal website of Swoppy. I make stuff on the interwebs.`,
     author: `Jason`,
+    siteUrl: `https://swoppy.space`,
+    defaultImage: `/images/swoppy_space_ss.png`,
+    twitter: `@heyswoppy`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
