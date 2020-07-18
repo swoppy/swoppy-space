@@ -1,4 +1,4 @@
-@import "../static/fonts/fonts.css";
+@import "../assets/fonts.css";
 @value vulcanApprox, whiteColor, mineShaft, mercury, goldYellow from '../assets/colors.css';
 @value mirage from '../components/isometric_art/intro_isometric.module.css';
 @value space: 16px;
