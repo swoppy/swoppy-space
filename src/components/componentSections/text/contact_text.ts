@@ -5,7 +5,7 @@ export default {
   twitter: `Twitter`,
   or: ` or `,
   emailAddress: `mailto:hey@swoppy.space`,
-  twitterAddress: `https://twitter.com/swoppy_`,
+  twitterAddress: `https://twitter.com/heyswoppy`,
   footer: {
     copyRight: `© 2020 Swoppy`,
     builtWith: `Built with React and Gatsby`,
