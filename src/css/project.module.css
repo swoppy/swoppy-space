@@ -60,7 +60,7 @@
 }
 
 .header span:first-child {
-  font-size: 2em;
+  font-size: 28px;
   font-weight: bold;
 }
 
@@ -70,7 +70,7 @@
 
 .viewAllLink {
   font-size: 14px;
-  font-weight: bolder;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -88,6 +88,16 @@
   color: silverApprox;
 }
 
+.lightHeader {
+  composes: header;
+  color: mineShaft;
+}
+
+.darkHeader {
+  composes: header;
+  color: mercury;
+}
+
 .projectContainer {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -99,10 +109,10 @@
 
 .project {
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.2) 0px 4px 6px -2px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   flex-grow: 1;
   font-family: monospace, sans-serif;
 }
@@ -117,25 +127,37 @@
 .lighProject {
   composes: project;
   background-color: whiteColor;
+  color: mineShaft;
 }
 
 .darkProject {
   composes: project;
-  background-color: tundora;
+  background-color: vulcanApprox;
   color: whiteColor;
 }
 
 .description {
   flex: 1;
   background-color: vulcanApprox;
-  border-radius: 8px 8px 0 0;
+  border-radius: 0 0 8px 8px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: space space;
-  color: silverApprox;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 14px;
+}
+
+.darkDescription {
+  composes: description;
+  background-color: vulcanApprox;
+  color: mercury;
+}
+
+.lightDescription {
+  composes: description;
+  background-color: whiteColor;
+  color: mineShaft;
 }
 
 .sub {
@@ -143,9 +165,8 @@
   align-items: center;
   justify-content: space-between;
   padding: space space;
-  font-size: 14px;
-  font-weight: bold;
   font-family: Montserrat, sans-serif;
+  font-weight: bolder;
 }
 
 .lightName {
@@ -198,5 +219,11 @@
   }
   .description {
     justify-content: center;
+  }
+  .header span:first-child {
+    font-size: 36px;
+  }
+  .viewAllLink {
+    font-size: 16px;
   }
 }

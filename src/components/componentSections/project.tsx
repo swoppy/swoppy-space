@@ -32,13 +32,13 @@ type ProjectStyles = {
 const themedStyles: ThemedStyles<ProjectStyles> = {
   [Theme.LIGHT]: {
     container: baseStyles.lightContainer,
-    header: baseStyles.header,
+    header: baseStyles.lightHeader,
     viewAllLink: baseStyles.lightViewAllLink,
     content: baseStyles.content,
     wrapper: baseStyles.wrapper,
     projectContainer: baseStyles.projectContainer,
     project: baseStyles.lighProject,
-    description: baseStyles.description,
+    description: baseStyles.lightDescription,
     sub: baseStyles.sub,
     name: baseStyles.lightName,
     language: baseStyles.language,
@@ -48,13 +48,13 @@ const themedStyles: ThemedStyles<ProjectStyles> = {
   },
   [Theme.DARK]: {
     container: baseStyles.darkContainer,
-    header: baseStyles.header,
+    header: baseStyles.darkHeader,
     viewAllLink: baseStyles.darkViewAllLink,
     content: baseStyles.content,
     wrapper: baseStyles.wrapper,
     projectContainer: baseStyles.projectContainer,
     project: baseStyles.darkProject,
-    description: baseStyles.description,
+    description: baseStyles.darkDescription,
     sub: baseStyles.sub,
     name: baseStyles.darkName,
     language: baseStyles.language,
@@ -99,7 +99,7 @@ const ProjectBox = () => {
       }
     )
   }, [])
-  
+
   return (
     <>
       {resource.map((item: RepoProps, key: number) => {
@@ -109,7 +109,7 @@ const ProjectBox = () => {
               <span>{item.description}</span>
             </ExternalLink>
             <div className={styles.sub}>
-              <span className={styles.name}>{item.name}</span>
+              <span className={styles.name}>{item.name!.toUpperCase()}</span>
               <div className={styles.language}>
                 <span className={getLangStyle(styles, item.language)}></span>
                 <span>{abbvTech(item.language)}</span>

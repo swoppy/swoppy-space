@@ -1,5 +1,5 @@
 @import "../assets//fonts.css";
-@value whiteColor, mineShaft from '../assets/colors.css';
+@value whiteColor, mineShaft, mercury from '../assets/colors.css';
 @value space: 16px;
 
 .indexContainer {
@@ -34,18 +34,18 @@
 
 .greetingsContainer h2 {
   font-family: monospace, sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0.8;
 }
-\ .greetingsContainer h2 > p {
+.greetingsContainer h2 > p {
   margin-bottom: 0;
 }
 
 .darkGreetingsContainer {
   composes: greetingsContainer;
-  color: whiteColor;
+  color: mercury;
 }
 
 .lightGreetingsContainer {
@@ -82,6 +82,6 @@
     font-size: 36px;
   }
   .greetingsContainer h2 > p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
