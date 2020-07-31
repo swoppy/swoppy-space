@@ -1,5 +1,5 @@
-@value goldYellow from '../../assets/colors.css';
-@value mineShaft from '../../assets/colors.css';
+@value goldYellow from '../../css/colors.css';
+@value mineShaft from '../../css/colors.css';
 
 .container {
   height: 100%;

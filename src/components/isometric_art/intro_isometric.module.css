@@ -1,5 +1,5 @@
-@import "../../assets/fonts.css";
-@value whiteColor, mineShaft, vulcanApprox, goldYellow from '../../assets/colors.css';
+@import "../../css/fonts.css";
+@value whiteColor, mineShaft, vulcanApprox, goldYellow from '../../css/colors.css';
 @value space: 16px;
 
 @value mirage: #202040;

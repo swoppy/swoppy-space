@@ -1,14 +1,14 @@
-@import "../assets/fonts.css";
-@value vulcanApprox from '../assets/colors.css';
-@value whiteColor from '../assets/colors.css';
-@value mineShaft from '../assets/colors.css';
-@value mercury from '../assets/colors.css';
-@value tundora from '../assets/colors.css';
-@value vulcanApprox from '../assets/colors.css';
-@value goldYellow from '../assets/colors.css';
-@value silverApprox from '../assets/colors.css';
-@value bermuda from '../assets/colors.css';
-@value js, ts from '../assets/colors.css';
+@import "./fonts.css";
+@value vulcanApprox from './colors.css';
+@value whiteColor from './colors.css';
+@value mineShaft from './colors.css';
+@value mercury from './colors.css';
+@value tundora from './colors.css';
+@value vulcanApprox from './colors.css';
+@value goldYellow from './colors.css';
+@value silverApprox from './colors.css';
+@value bermuda from './colors.css';
+@value js, ts from './colors.css';
 @value space: 16px;
 
 .container {
@@ -59,12 +59,13 @@
   font-family: Montserrat, sans-serif;
 }
 
-.header span:first-child {
+.header h1 {
   font-size: 28px;
   font-weight: bold;
+  margin: 0;
 }
 
-.header span:last-child {
+.header span {
   margin-bottom: 4.2px;
 }
 
@@ -112,7 +113,7 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.2) 0px 4px 6px -2px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   flex-grow: 1;
   font-family: monospace, sans-serif;
 }
@@ -146,6 +147,11 @@
   padding: space space;
   text-decoration: none;
   font-size: 14px;
+  margin: 0;
+}
+
+.description p {
+  margin: 0;
 }
 
 .darkDescription {
@@ -167,6 +173,11 @@
   padding: space space;
   font-family: Montserrat, sans-serif;
   font-weight: bolder;
+}
+
+.sub h2 {
+  margin: 0;
+  font-size: 16px;
 }
 
 .lightName {
@@ -220,7 +231,7 @@
   .description {
     justify-content: center;
   }
-  .header span:first-child {
+  .header h1 {
     font-size: 36px;
   }
   .viewAllLink {

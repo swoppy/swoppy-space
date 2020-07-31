@@ -1,4 +1,4 @@
-@value blackColor from '../../assets/colors.css';
+@value blackColor from '../../css/colors.css';
 
 .animation {
   animation: reveal 0.25s ease-in-out forwards;

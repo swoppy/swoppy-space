@@ -1,5 +1,5 @@
-@import "../assets/fonts.css";
-@value vulcanApprox, whiteColor, mineShaft, mercury, goldYellow from '../assets/colors.css';
+@import "./fonts.css";
+@value vulcanApprox, whiteColor, mineShaft, mercury, goldYellow from './colors.css';
 @value mirage from '../components/isometric_art/intro_isometric.module.css';
 @value space: 16px;
 
@@ -50,13 +50,13 @@
   justify-content: center;
 }
 
-.getInTouch h1 {
+.getInTouch h3 {
   font-size: 28px;
   margin: 0;
   font-family: Montserrat, sans-serif;
 }
 
-.getInTouch h2 {
+.getInTouch h4 {
   margin: 0;
   padding-top: 14px;
   font-family: monospace, sans-serif;
@@ -100,10 +100,10 @@
 }
 
 @media screen and (min-width: 600px) {
-  .getInTouch h1 {
+  .getInTouch h3 {
     font-size: 36px;
   }
-  .getInTouch h2 {
+  .getInTouch h4 {
     font-size: 16px;
   }
 }

@@ -1,5 +1,5 @@
-@value vulcanApprox from '../../assets/colors.css';
-@value whiteColor from '../../assets/colors.css';
+@value vulcanApprox from '../../css/colors.css';
+@value whiteColor from '../../css/colors.css';
 
 .baseBackground {
   display: flex;
