@@ -37,6 +37,7 @@ const SEO = ({ description, lang, meta, title, image }) => {
 
   const metaDescription = description || defaultDescription
   const metaImage = `${siteUrl}${image || defaultImage}`
+  const metaTitle = title || defaultTitle
   return (
     <Helmet
       htmlAttributes={{
@@ -44,11 +45,11 @@ const SEO = ({ description, lang, meta, title, image }) => {
       }}
       {...(title
         ? {
-            titleTemplate: `%s — ${defaultTitle}`,
+            titleTemplate: `%s — ${metaTitle}`,
             title,
           }
         : {
-            title: `${defaultTitle} — Personal site of Swoppy`,
+            title: `${metaTitle}`,
           })}
       meta={[
         {
@@ -61,7 +62,7 @@ const SEO = ({ description, lang, meta, title, image }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:description`,
@@ -72,28 +73,36 @@ const SEO = ({ description, lang, meta, title, image }) => {
           content: metaImage,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: `og:url`,
+          content: siteUrl,
         },
         {
-          property: `twitter:image`,
-          content: metaImage,
+          property: `og:type`,
+          content: `website`,
         },
         {
           name: `twitter:card`,
           content: `summary_large_image`,
         },
         {
+          name: `twitter:image`,
+          content: metaImage,
+        },
+        {
+          name: `twitter:title`,
+          content: metaTitle,
+        },
+        {
           name: `twitter:creator`,
           content: twitter,
         },
         {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:site`,
+          content: twitter,
         },
       ].concat(meta)}
     />
@@ -111,7 +120,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   image: PropTypes.string,
 }
 
