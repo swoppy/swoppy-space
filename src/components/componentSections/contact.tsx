@@ -34,9 +34,9 @@ export const Contact = () => {
   return (
     <div className={styles.container}>
       <div className={styles.closingSection}>
-        <div className={styles.getInTouch}>
-          <h1>{text.closing}</h1>
-          <h2>
+        <section className={styles.getInTouch}>
+          <h3>{text.closing}</h3>
+          <h4>
             {text.contacts}
             <ExternalLink to={text.emailAddress} className={styles.link}>
               {text.email}
@@ -45,12 +45,12 @@ export const Contact = () => {
             <ExternalLink to={text.twitterAddress} className={styles.link}>
               {text.twitter}
             </ExternalLink>
-          </h2>
-        </div>
-        <div className={styles.footer}>
+          </h4>
+        </section>
+        <footer className={styles.footer}>
           <div>{text.footer.copyRight}</div>
           <div>{text.footer.builtWith}</div>
-        </div>
+        </footer>
       </div>
     </div>
   )

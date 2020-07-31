@@ -104,18 +104,18 @@ const ProjectBox = () => {
     <>
       {resource.map((item: RepoProps, key: number) => {
         return (
-          <div className={styles.project} key={key}>
-            <ExternalLink to={item.html_url!} className={styles.description}>
-              <span>{item.description}</span>
-            </ExternalLink>
+          <article className={styles.project} key={key}>
             <div className={styles.sub}>
-              <span className={styles.name}>{item.name!.toUpperCase()}</span>
+              <h2 className={styles.name}>{item.name!.toUpperCase()}</h2>
               <div className={styles.language}>
                 <span className={getLangStyle(styles, item.language)}></span>
                 <span>{abbvTech(item.language)}</span>
               </div>
             </div>
-          </div>
+            <ExternalLink to={item.html_url!} className={styles.description}>
+              <p>{item.description}</p>
+            </ExternalLink>
+          </article>
         )
       })}
     </>
@@ -134,10 +134,10 @@ const ProjectList = () => {
 export const Projects = () => {
   const styles = useStyles(themedStyles)
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <span>{text.project}</span>
+          <h1>{text.project}</h1>
           <span>
             <ExternalLink to={text.viewAllLink} className={styles.viewAllLink}>
               {text.viewAll}
@@ -146,6 +146,6 @@ export const Projects = () => {
         </div>
         <ProjectList />
       </div>
-    </div>
+    </main>
   )
 }
