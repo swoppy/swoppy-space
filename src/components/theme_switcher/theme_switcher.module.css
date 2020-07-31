@@ -40,19 +40,16 @@
 }
 
 .logoContainerAnimation {
-  composes: logoContainer;
   animation-name: spin;
   animation-duration: 1s;
 }
 
 .lightAnimation {
-  composes: logoContainer;
   composes: logoContainerAnimation;
   color: goldYellow;
 }
 
 .darkAnimation {
-  composes: logoContainer;
   composes: logoContainerAnimation;
   color: mineShaft;
 }
