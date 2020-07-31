@@ -1,5 +1,5 @@
 import { reaction } from "mobx"
-import { GlobalThemeStore, Theme, ThemeLocalKey } from "../ui/themes"
+import { GlobalThemeStore, Theme, setTheme } from "../ui/themes"
 import { BooleanStore } from "../ui/generic_store"
 
 export class ThemeStore {
@@ -10,8 +10,9 @@ export class ThemeStore {
     reaction(
       () => this.theme.value,
       () => {
+        console.log(this.theme.value)
         GlobalThemeStore.set(this.theme.value ? Theme.DARK : Theme.LIGHT)
-        localStorage.setItem(ThemeLocalKey.SST, GlobalThemeStore.get())
+        setTheme(GlobalThemeStore.get())
       }
     )
   }
