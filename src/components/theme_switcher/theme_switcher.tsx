@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback, useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons"
 import { ThemedStyles, Theme, useStyles } from "../../ui/themes"
@@ -34,14 +34,15 @@ type BaseThemeSwitcherProps = {
 
 export const ThemeSwitcher = observer(({ store }: BaseThemeSwitcherProps) => {
   const styles = useStyles(themedStyles)
-  const [animate, setAnimate] = React.useState(styles.logoContainer)
-  const handleToggle = React.useCallback(() => {
+  const [animate, setAnimate] = useState<string | null>(null)
+
+  const handleToggle = useCallback(() => {
     store.setValue(!store.value)
     setAnimate(styles.logoContainerAnimation)
   }, [store, styles.logoContainerAnimation])
 
-  const onAnimationEnd = React.useCallback(() => {
-    setAnimate(styles.logoContainer)
+  const onAnimationEnd = useCallback(() => {
+    setAnimate(null)
   }, [styles.logoContainer])
 
   return (
@@ -54,7 +55,7 @@ export const ThemeSwitcher = observer(({ store }: BaseThemeSwitcherProps) => {
       />
       <label className={styles.label}>
         <div
-          className={animate}
+          className={`${styles.logoContainer} ${animate}`}
           onClick={handleToggle}
           onAnimationEnd={onAnimationEnd}
         >

@@ -1,16 +1,7 @@
-@value goldYellow from '../../assets/colors.css';
-@value mineShaft from '../../assets/colors.css';
-@value blackColor from '../../assets/colors.css';
-@value whiteColor from '../../assets/colors.css';
-
-.logoContainer {
-  font-size: 28px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  width: fit-content;
-  position: relative;
-}
+@value goldYellow from '../../css/colors.css';
+@value mineShaft from '../../css/colors.css';
+@value blackColor from '../../css/colors.css';
+@value whiteColor from '../../css/colors.css';
 
 .inputToggle {
   height: 22px;
@@ -27,6 +18,15 @@
 
 .inputToggle:focus + .darkLabel {
   outline: 1px solid whiteColor;
+}
+
+.logoContainer {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  position: relative;
 }
 
 .lightLogoContainer {
