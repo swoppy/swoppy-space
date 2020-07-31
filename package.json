@@ -39,7 +39,9 @@
     "typescript": "^3.9.5"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "typescript",
+    "css-modules"
   ],
   "license": "MIT",
   "scripts": {
